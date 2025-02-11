@@ -1,0 +1,4 @@
+package it.epicode.BE_W6D2.autori;
+
+public class AutoreController {
+}
