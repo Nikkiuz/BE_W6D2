@@ -7,7 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.sql.Time;
+
 
 @Data
 @Entity
@@ -23,7 +24,7 @@ public class Post {
 	private String titolo;
 	private String cover;
 	private String contenuto;
-	private double tempoDiLettura;
+	private Time tempoDiLettura;
 
 	@ManyToOne
 	private Autore autore;

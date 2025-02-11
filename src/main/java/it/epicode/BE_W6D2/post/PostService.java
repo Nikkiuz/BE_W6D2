@@ -26,11 +26,11 @@ public class PostService {
 	}
 
 	public CreateResponse save(PostRequest request) {
-		if (PostRepository.existsByTitolo(request.getTitolo())) {
-			throw new EntityExistsException("Post already exists");
+		if (postRepository.existsByTitolo(request.getTitolo())) {
+			throw new EntityExistsException("Post already exists: title checked");
 		}
 
-		if (PostRepository.existsByContenuto(request.getContenuto())) {
+		if (postRepository.existsByContenuto(request.getContenuto())) {
 			throw new EntityExistsException("Post already exists: content checked");
 		}
 

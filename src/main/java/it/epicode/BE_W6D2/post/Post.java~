@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -19,9 +20,12 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
+	private String categoria;
 	private String titolo;
-	private String testo;
-	private LocalDate dataPubblicazione;
+	private String cover;
+	private String contenuto;
+	private LocalDateTime tempoDiLettura;
+
 	@ManyToOne
 	private Autore autore;
 	@ManyToOne
