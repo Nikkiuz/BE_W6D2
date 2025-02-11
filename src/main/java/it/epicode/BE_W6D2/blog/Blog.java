@@ -1,5 +1,7 @@
 package it.epicode.BE_W6D2.blog;
 
+import it.epicode.BE_W6D2.autori.Autore;
+import it.epicode.BE_W6D2.post.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
