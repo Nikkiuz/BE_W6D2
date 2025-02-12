@@ -17,7 +17,7 @@ public class PostController {
 	//GET http://localhost:8080/api/posts
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public List<Post> findAll() {
+	public List<PostResponse> findAll() {
 		return postService.findAll();
 	}
 

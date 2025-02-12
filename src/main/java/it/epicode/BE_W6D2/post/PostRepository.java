@@ -7,5 +7,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 	public boolean existsByTitolo(String titolo);
 	public Post findByContenuto(String contenuto);
 	public boolean existsByContenuto(String contenuto);
-	public boolean existById(Long id);
+	public boolean existsById(Long id);
+	//public Post findById(Long id);
+
 }

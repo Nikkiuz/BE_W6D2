@@ -15,4 +15,5 @@ public class PostRequest {
 	private String contenuto;
 	private double tempoDiLettura;
 	private Long autoreId;
+	private Long blogId;
 }

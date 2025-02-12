@@ -17,7 +17,7 @@ public class AutoreController {
 	//GET http://localhost:8080/api/autori
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public List<Autore> findAll() {
+	public List<AutoreResponse> findAll() {
 		return autoreService.findAll();
 	}
 

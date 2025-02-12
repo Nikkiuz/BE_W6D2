@@ -50,7 +50,7 @@ public class PostService {
 
 	@Transactional
 	public PostDettaglioResponse findPostResponseById(Long id){
-		if(!postRepository.existById(id)){
+		if(!postRepository.existsById(id)){
 			throw new EntityNotFoundException("Post non trovato");
 		}
 
