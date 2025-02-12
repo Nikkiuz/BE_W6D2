@@ -1,6 +1,6 @@
-package it.epicode.BE_W6D2.autori;
+package it.epicode.BE_W6D2.blog;
 
-import it.epicode.BE_W6D2.blog.Blog;
+import it.epicode.BE_W6D2.autori.Autore;
 import it.epicode.BE_W6D2.post.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,20 +14,17 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "autori")
-
-public class Autore {
+@Table(name = "blogs")
+public class Blog {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
+
 	private String nome;
-	private String cognome;
-	private String email;
-	private Boolean attivo=true;
+	private String indirizzoWeb;
 
-	@ManyToOne
-	Blog blog;
-
-	@OneToMany(mappedBy = "autore")
+	@OneToMany
+	private Set<Autore> autori = new HashSet<>();
+	@OneToMany
 	private Set<Post> posts = new HashSet<>();
 }

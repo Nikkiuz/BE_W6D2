@@ -14,5 +14,4 @@ public class PostRequest {
 	private String cover;
 	private String contenuto;
 	private double tempoDiLettura;
-	private Long autoreId;
 }

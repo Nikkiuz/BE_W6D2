@@ -4,15 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Time;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class PostRequest {
-	private String categoria;
+public class PostDettaglioResponse {
+	private Long id;
 	private String titolo;
-	private String cover;
 	private String contenuto;
-	private double tempoDiLettura;
+	private String categoria;
+	private String cover;
+	private Time tempoDiLettura;
 	private Long autoreId;
+
 }

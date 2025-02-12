@@ -1,5 +1,6 @@
 package it.epicode.BE_W6D2.blog;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import it.epicode.BE_W6D2.autori.Autore;
 import it.epicode.BE_W6D2.post.Post;
 import jakarta.persistence.*;
@@ -24,7 +25,10 @@ public class Blog {
 	private String indirizzoWeb;
 
 	@OneToMany
+	@JsonIgnoreProperties("blog")
 	private Set<Autore> autori = new HashSet<>();
-	@OneToMany
+
+	@OneToMany(mappedBy = "blog")
+	@JsonIgnoreProperties("blog")
 	private Set<Post> posts = new HashSet<>();
 }
