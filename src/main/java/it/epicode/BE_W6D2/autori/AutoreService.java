@@ -37,6 +37,7 @@ public class AutoreService {
 	}
 		Autore autore = autoreFromRequest(request);
 		CreateResponse response = new CreateResponse();
+		autoreRepository.save(autore);
 		BeanUtils.copyProperties(autore, response);
 		return response;
 	}

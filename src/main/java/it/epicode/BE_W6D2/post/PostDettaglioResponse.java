@@ -15,7 +15,7 @@ public class PostDettaglioResponse {
 	private String contenuto;
 	private String categoria;
 	private String cover;
-	private Time tempoDiLettura;
+	private int tempoDiLettura;
 	private Long autoreId;
 	private Long blogId;
 }

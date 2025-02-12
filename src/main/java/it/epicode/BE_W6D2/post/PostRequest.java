@@ -13,7 +13,7 @@ public class PostRequest {
 	private String titolo;
 	private String cover;
 	private String contenuto;
-	private double tempoDiLettura;
+	private int tempoDiLettura;
 	private Long autoreId;
 	private Long blogId;
 }

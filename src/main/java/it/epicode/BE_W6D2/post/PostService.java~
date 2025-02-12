@@ -2,8 +2,6 @@ package it.epicode.BE_W6D2.post;
 
 import it.epicode.BE_W6D2.autori.Autore;
 import it.epicode.BE_W6D2.autori.AutoreRepository;
-import it.epicode.BE_W6D2.blog.Blog;
-import it.epicode.BE_W6D2.blog.BlogRepository;
 import it.epicode.BE_W6D2.responses.CreateResponse;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
@@ -19,7 +17,6 @@ import java.util.List;
 public class PostService {
 	private final PostRepository postRepository;
 	private final AutoreRepository autoreRepository;
-	private final BlogRepository blogRepository;
 
 	public List<PostResponse> findAll() {
 		List<PostResponse> response = postResponseListFromEntityList(postRepository.findAll());
@@ -42,17 +39,10 @@ public class PostService {
 		throw new EntityNotFoundException("Autore non trovato");
 	}
 
-	if(!blogRepository.existsById(request.getBlogId())) {
-		throw new EntityNotFoundException("Blog non trovato");
-	}
-
 	Autore autore = autoreRepository.findById(request.getAutoreId()).get();
-
-	Blog blog = blogRepository.findById(request.getBlogId()).get();
-
+	
 	Post post = postFromRequest(request);
 	post.setAutore(autore);
-	post.setBlog(blog);
 
 
 	CreateResponse response = new CreateResponse();

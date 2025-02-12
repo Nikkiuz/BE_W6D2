@@ -15,6 +15,6 @@ public class PostResponse {
 	public String testo;
 	public String categoria;
 	public String cover;
-	public Time tempoDiLettura;
+	public int tempoDiLettura;
 	private Long autoreId;
 }
