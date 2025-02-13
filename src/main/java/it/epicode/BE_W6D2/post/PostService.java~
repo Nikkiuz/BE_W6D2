@@ -29,7 +29,7 @@ public class PostService {
 		return response;
 	}
 
-	public Post modify(Long id, PostRequest request) {
+	public Post modify(@Valid Long id, PostRequest request) {
 		Post post = findById(id);
 		BeanUtils.copyProperties(request, post);
 		postRepository.save(post);

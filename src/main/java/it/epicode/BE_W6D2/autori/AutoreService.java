@@ -34,7 +34,7 @@ public class AutoreService {
 		return response;
 	}
 
-	public Autore modify(@Valid Long id, AutoreRequest request) {
+	public Autore modify(Long id, AutoreRequest request) {
 		Autore autore = findById(id);
 		BeanUtils.copyProperties(request, autore);
 		autoreRepository.save(autore);
@@ -62,7 +62,7 @@ public class AutoreService {
 		autoreRepository.save(autore);
 		BeanUtils.copyProperties(autore, response);
 	try {
-		emailService.sendEmail("nikkiuz@hotmail.it", newAutoreSubject,
+		emailService.sendEmail("nick_albanese@virgilio.it", newAutoreSubject,
 				newAutoreBody+autore.getNome()+" "+autore.getCognome());
 	} catch (MessagingException e) {
 		System.out.println("Errore invio email");

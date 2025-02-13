@@ -2,6 +2,7 @@ package it.epicode.BE_W6D2.autori;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,11 +24,11 @@ public class AutoreRequest {
 	@Email(message = "L'email non è valida")
 	private String email;
 
-	@NotBlank(message = "La data di nascita non può essere vuota")
+	@NotNull(message = "La data di nascita non può essere vuota")
 	private LocalDate dataDiNascita;
 
 	private String avatar;
 
-	@NotBlank(message = "Il blogId non può essere vuoto")
+	@NotNull(message = "Il blogId non può essere vuoto")
 	private Long blogId;
 }
