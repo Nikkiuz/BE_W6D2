@@ -1,10 +1,13 @@
 package it.epicode.BE_W6D2.autori;
 
+import it.epicode.BE_W6D2.mail.EmailService;
 import it.epicode.BE_W6D2.responses.CreateResponse;
+import jakarta.mail.MessagingException;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +17,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AutoreService {
 	private final AutoreRepository autoreRepository;
+	private final EmailService emailService;
+	@Value("${messages.new.autore.subject}")
+	private String newAutoreSubject;
+	@Value("${messages.new.autore.body}")
+	private String newAutoreBody;
 
 	public List<AutoreResponse> findAll() {
 		List<AutoreResponse> response = autoreResponseListFromEntityList(autoreRepository.findAll());
@@ -27,6 +35,7 @@ public class AutoreService {
 		return autore;
 	}
 
+	
 	public CreateResponse save(AutoreRequest request) {
 		if(autoreRepository.existsByEmail(request.getEmail())) {
 			throw new EntityExistsException("Autore già esistente");
@@ -39,6 +48,13 @@ public class AutoreService {
 		CreateResponse response = new CreateResponse();
 		autoreRepository.save(autore);
 		BeanUtils.copyProperties(autore, response);
+	try {
+		emailService.sendEmail("nikkiuz@hotmail.it", newAutoreSubject,
+				newAutoreBody+autore.getNome()+" "+autore.getCognome());
+	} catch (MessagingException e) {
+		System.out.println("Errore invio email");
+
+	}
 		return response;
 	}
 

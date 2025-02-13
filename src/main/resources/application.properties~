@@ -23,4 +23,4 @@ spring.mail.properties.mail.smtp.timeout=5000
 spring.mail.properties.mail.smtp.writetimeout=5000
 
 messages.new.autore.subject=Autore creato
-messages.new.autore.body=Autore creato con successo
+me

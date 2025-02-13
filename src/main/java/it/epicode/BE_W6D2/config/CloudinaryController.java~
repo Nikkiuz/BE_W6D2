@@ -1,0 +1,4 @@
+package it.epicode.BE_W6D2.config;
+
+public class CloudinaryController {
+}
