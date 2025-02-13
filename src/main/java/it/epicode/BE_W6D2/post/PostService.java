@@ -7,15 +7,18 @@ import it.epicode.BE_W6D2.blog.BlogRepository;
 import it.epicode.BE_W6D2.responses.CreateResponse;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Validated
 public class PostService {
 	private final PostRepository postRepository;
 	private final AutoreRepository autoreRepository;
@@ -26,14 +29,14 @@ public class PostService {
 		return response;
 	}
 
-	public Post modify(Long id, PostRequest request) {
+	public Post modify(@Valid Long id, PostRequest request) {
 		Post post = findById(id);
 		BeanUtils.copyProperties(request, post);
 		postRepository.save(post);
 		return post;
 	}
 
-	public CreateResponse save(PostRequest request){
+	public CreateResponse save(@Valid PostRequest request){
 	if(postRepository.existsByTitolo(request.getTitolo())){
 		throw new EntityExistsException("Post già esistente");
 	}
@@ -52,7 +55,7 @@ public class PostService {
 
 	Post post = postFromRequest(request);
 	post.setAutore(autore);
-	post.setBlog(blog);
+		post.setBlog(blog);
 
 
 	CreateResponse response = new CreateResponse();

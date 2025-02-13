@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/images")
 @RequiredArgsConstructor
-public class  CloudinaryController {
+public class CloudinaryController {
 	private final Cloudinary cloudinary;
 
 	@PostMapping(path = "/uploadme", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

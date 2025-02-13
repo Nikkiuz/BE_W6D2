@@ -34,7 +34,7 @@ public class AutoreService {
 		return response;
 	}
 
-	public Autore modify(@Valid Long id, AutoreRequest request) {
+	public Autore modify(Long id, AutoreRequest request) {
 		Autore autore = findById(id);
 		BeanUtils.copyProperties(request, autore);
 		autoreRepository.save(autore);

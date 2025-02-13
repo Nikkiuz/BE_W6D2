@@ -20,7 +20,7 @@ public class CloudinaryConfig {
 
 
 	@Bean
-	public Cloudinary uploader() {
+	public Cloudinary cloudinary() {
 		Map<String, String> config = new HashMap<>();
 		config.put("cloud_name", cloudName); // Sostituisci con il tuo nome cloud
 		config.put("api_key", apiKey); // Sostituisci con la tua API key
